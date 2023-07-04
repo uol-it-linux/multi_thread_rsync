@@ -1,9 +1,9 @@
 #!/bin/bash
 
-readarray -t staff_dirs < staff_directories.txt
+readarray -t staff_dirs < /root/multi_thread_rsync/staff_directories.txt
 
-csunix_dir=/home/source/
-eufs_dir=/home/dest/
+csunix_dir=/mnt/cserv1_a/
+eufs_dir=/uolstore/home/staff_lnxhome01/
 log_file=/tmp/rsync.log
 
 for i in "${staff_dirs[@]}"; do
