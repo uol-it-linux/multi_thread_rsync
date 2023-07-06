@@ -1,4 +1,6 @@
 # multi_thread_rsync
+#### THIS IS BECOMING A TOOLKIT FOR MANAGING DATA #####
+
 Scripts for storage team to copy userdata 
 
 This lives at svmtmgt02:/root/multi_thread_rsync
