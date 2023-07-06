@@ -16,10 +16,15 @@ for i in "${user_dirs[@]}"; do
  echo $csunix_dir/$i
 done
 
+# Test we can read the directories
+for i in "${user_dirs[@]}"; do
+ ls $csunix_dir/$i
+done
+
 # Loop through the user directories and run rsync in parallel
 for i in "${user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
-  rsync -avz --exclude-from=/root/rsync-homedir-excludes "$csunix_dir/$i/*" "$eufs_dir/" --delete &
+  rsync -avz --exclude-from=/root/rsync-homedir-excludes -v "$csunix_dir/$i/*" "$eufs_dir/" --delete &
 done
 
 # Wait for all rsync processes to finish
