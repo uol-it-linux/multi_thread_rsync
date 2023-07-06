@@ -11,6 +11,11 @@ log_file=/tmp/rsync.log
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
 
+# Debug test: verify csunix path is correct
+for i in "${user_dirs[@]}"; do
+ echo $csunix_dir/$i
+done
+
 # Loop through the user directories and run rsync in parallel
 for i in "${user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
