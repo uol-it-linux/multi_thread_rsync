@@ -2,6 +2,8 @@
 
 readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
 
+touch ~/.parallel/willcite
+
 csunix_dir=/mnt/cserv1_a/
 eufs_dir=/uolstore/home/staff_lnxhome01/
 log_file=/tmp/rsync.log
