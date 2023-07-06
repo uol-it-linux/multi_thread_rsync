@@ -4,7 +4,7 @@
 PARALLEL=4
 
 # Set the source and destination paths
-csunix_dir=/mnt/cserv1_a/
+csunix_dir=/mnt/cserv1_a
 eufs_dir=/uolstore/home/staff_lnxhome01/
 log_file=/tmp/rsync.log
 
