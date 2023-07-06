@@ -14,7 +14,7 @@ readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
 # Loop through the user directories and run rsync in parallel
 for i in "${user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
-  rsync -avz --exclude-from=/root/rsync-homedir-excludes "$csunix_dir/${i}" "$eufs_dir/" --delete &
+  rsync -avz --exclude-from=/root/rsync-homedir-excludes "$csunix_dir/$i" "$eufs_dir/" --delete &
 done
 
 # Wait for all rsync processes to finish
