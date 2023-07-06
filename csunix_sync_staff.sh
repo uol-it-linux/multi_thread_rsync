@@ -13,7 +13,7 @@ for i in "${user_dirs[@]}"; do
 done
 
 for i in "${user_dirs[@]}"; do
-  parallel -j 10 --progress --bibtex --joblog "$log_file" rsync -avz "$csunix_dir/${i}" "$eufs_dir/" --delete &
+  parallel -j 10 --progress --bibtex --citation -joblog "$log_file" rsync -avz "$csunix_dir/${i}" "$eufs_dir/" --delete &
 done
 
 wait
