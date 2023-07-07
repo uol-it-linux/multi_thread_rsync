@@ -15,7 +15,7 @@ do
     if [ `ps -efa | grep "rsync.*exclude-from.*rsync-homedir-excludes" | wc -l` < $PARALLEL ]; then
       rsync -avz --exclude-from=/root/rsync-homedir-excludes -v "$csunix_dir/$thisDir/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
     else
-      wait 30
+      sleep 10
   else
     echo "Directory $csunix_dir/${user_dirs[$i]} does not exist."
   fi
