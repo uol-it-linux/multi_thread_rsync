@@ -9,15 +9,10 @@ eufs_dir="/uolstore/home/staff_lnxhome01/"
 log_file="/tmp/rsync.log"
 
 # Loop through the user directories and run rsync in parallel
-while IFS="" read -r thisDir || [ -n "$thisDir" ]
-do
-  if [ -d "$csunix_dir/$thisDir" ]; then
-    if [ $(ps -efa | grep "rsync.*exclude-from.*rsync-homedir-excludes" | wc -l) -lt $PARALLEL ]; then
-      rsync -avz --exclude-from=/root/rsync-homedir-excludes -v "$csunix_dir/$thisDir/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
-    else
-      sleep 10
-    fi
+while IFS="" read -r thisDir || [ -n "$thisDir" ]; do
+  if [ $(ps -efa | grep "rsync.*exclude-from.*rsync-homedir-excludes" | wc -l) -lt $PARALLEL ]; then
+    rsync -avz --exclude-from=/root/rsync-homedir-excludes -v "$csunix_dir/$thisDir/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
   else
-    echo "Directory $csunix_dir/$thisDir does not exist."
+    sleep 10
   fi
 done < /root/multi_thread_rsync/staff_directories.txt
