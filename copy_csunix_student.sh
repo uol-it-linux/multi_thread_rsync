@@ -20,7 +20,8 @@ done
 for i in "${!user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
   if [ -d "$csunix_dir/${user_dirs[$i]}" ]; then
-    rsync -avz --exclude-from=/root/rsync-homedir-excludes --exclude=BACKUP --exclude=scsysadm --progress "$csunix_dir/${user_dirs[$i]}/" "$eufs_dir" --delete --log-file="$log_file" 2>&1 &
+    log_file="/tmp/rsync_$i.log"  # Use a separate log file for each rsync process
+    rsync -avz --compress --inplace --partial --exclude-from=/root/rsync-homedir-excludes --exclude=BACKUP --exclude=scsysadm --progress "$csunix_dir/${user_dirs[$i]}/" "$eufs_dir" --log-file="$log_file" 2>&1 &
   else
     echo "Directory $csunix_dir/${user_dirs[$i]} does not exist."
   fi
