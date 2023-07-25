@@ -1,10 +1,10 @@
 #!/bin/bash
-
+## To be run from csunix ##
 # Set the number of parallel processes
 PARALLEL=40
 
 # Set the source and destination paths
-csunix_dir="/export/cserv1_a/soc_staff/"
+csunix_dir="/export/cserv1_a/soc_staff"
 eufs_dir="/mnt/eufs003/student_lnxhome01/"
 log_file="/tmp/rsync.log"
 
