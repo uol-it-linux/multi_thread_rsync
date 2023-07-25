@@ -1,5 +1,5 @@
 #!/bin/bash
-
+## To be run from csunix ##
 # Set the number of parallel processes
 PARALLEL=15
 
