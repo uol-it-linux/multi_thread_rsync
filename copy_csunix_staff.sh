@@ -10,7 +10,7 @@ log_file="/tmp/rsync.log"
 
 # Specify the files containing the exclude directories/patterns
 first_twenty_excludes="/root/multi_thread_rsync/first_twenty_usernames.txt"
-additional_excludes="/root/multi_thread_rsync/rsync-homedir-excludes.txt"
+additional_excludes="/root/multi_thread_rsync/rsync-homedir-excludes"
 
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
