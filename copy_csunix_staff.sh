@@ -4,7 +4,7 @@
 PARALLEL=40
 
 # Set the source and destination paths
-csunix_dir="/export/cserv1_a/"
+csunix_dir="/export/cserv1_a"
 eufs_dir="/mnt/eufs003/staff_lnxhome01/"
 log_file="/tmp/rsync.log"
 
