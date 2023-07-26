@@ -5,7 +5,8 @@ PARALLEL=40
 
 # Set the source and destination paths
 csunix_dir="/export/cserv1_a"
-eufs_dir="/mnt/eufs003/staff_lnxhome01/"
+#eufs_dir="/mnt/eufs003/staff_lnxhome01/"
+eufs_dir="/mnt/eufs003/Testvol"
 log_file="/tmp/rsync.log"
 
 # Specify the files containing the exclude directories/patterns
