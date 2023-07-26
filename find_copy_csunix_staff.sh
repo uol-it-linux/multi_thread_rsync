@@ -21,7 +21,7 @@ for i in "${!user_dirs[@]}"; do
   source_dir="$csunix_dir/${user_dirs[$i]}"
   
   # Find the absolute paths of directories one level beneath the current user directory
-  find "$source_dir" -mindepth 2 -maxdepth 2 -type d -name "user*" -exec realpath {} + > /tmp/target_directories.txt
+  find "$source_dir" -mindepth 2 -maxdepth 2 -type d -name "*" -exec realpath {} + > /tmp/target_directories.txt
 
   # Read the array of target directories from the temporary file
   readarray -t target_dirs < /tmp/target_directories.txt
