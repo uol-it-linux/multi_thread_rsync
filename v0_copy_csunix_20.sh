@@ -1,7 +1,7 @@
 #!/bin/bash
 ## To be run from csunix ##
 # Set the number of parallel processes
-PARALLEL=40
+#PARALLEL=40
 
 # Set the source and destination paths
 csunix_dir="/export/cserv1_a/soc_staff"
@@ -18,12 +18,8 @@ done
 
 # Loop through the user directories and run rsync in parallel
 for i in "${!user_dirs[@]}"; do
-  ((i=i%PARALLEL)); ((i++==0)) && wait
-  if [ -d "$csunix_dir/${user_dirs[$i]}" ]; then
-    rsync -avz --progress --dry-run "$csunix_dir/${user_dirs[$i]}/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
-  else
-    echo "Directory $csunix_dir/${user_dirs[$i]} does not exist."
-  fi
+  #((i=i%PARALLEL)); ((i++==0)) && wait
+    rsync -avz --progress --dry-run  "$csunix_dir/${user_dirs[$i]}/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
 done
 
 # Wait for all rsync processes to finish
