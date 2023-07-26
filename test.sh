@@ -12,8 +12,8 @@ log_file="/tmp/rsync.log"
 # Specify the files containing the exclude directories/patterns
 first_twenty_excludes="/root/multi_thread_rsync/first_twenty_usernames.txt"
 additional_excludes="/root/multi_thread_rsync/rsync-homedir-excludes"
-staff_excludes="/root/multi_thread_rsync/staff_directories.txt"
-student_exludes="/root/multi_thread_rsync/student_directories.txt"
+dir_excludes="/root/multi_thread_rsync/parent_dirs_exclude.txt"
+
 
 
 # Read the array of user directories from the file
@@ -32,7 +32,7 @@ for i in "${!user_dirs[@]}"; do
 
   for target_dir in "${target_dirs[@]}"; do
     if [ -d "$target_dir" ]; then
-      rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$parent_excludes" --exclude-from="$student_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+      rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
     else
       echo "Directory $target_dir does not exist."
     fi
