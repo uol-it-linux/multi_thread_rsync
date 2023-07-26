@@ -26,7 +26,7 @@ for i in "${!user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
   source_dir="$csunix_dir/${user_dirs[$i]}"
   if [ -d "$source_dir" ]; then
-    rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --progress "$source_dir/" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+    rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --progress "$source_dir/" "$eufs_dir" --delete-delay >> "$log_file" 2>&1 &
   else
     echo "Directory $source_dir does not exist."
   fi
