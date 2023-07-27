@@ -9,14 +9,3 @@ soc_msc
 soc_ssa
 speme_ug
 soc_ug
-civil_staff
-elec_staff
-feng_staff
-mech_staff
-soc_pg
-soc_staff
-speme_staff
-speme_rpg
-mech_rpg
-elec_rpg
-civil_rpg
