@@ -26,7 +26,7 @@ for i in "${!user_dirs[@]}"; do
   target_dirs=()
   while IFS= read -r -d $'\0' target_dir; do
     target_dirs+=("$target_dir")
-  done < <(find -P "$source_dir" -mindepth 1 -maxdepth 1 -type d -name "*" -print0)
+  done < <(find -P "$source_dir" -mindepth 2 -maxdepth 2 -type d -name "*" -print0)
 
   for target_dir in "${target_dirs[@]}"; do
     # Extract the parent directory name
