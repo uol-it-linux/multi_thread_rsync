@@ -20,7 +20,7 @@ dir_excludes="/root/multi_thread_rsync/parent_dirs_exclude.txt"
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
 
-# Loop through the user directories and run rsync in parallel (dry-run - remove 'n' from "rsync -avzn" to run for real)
+# Loop through the user directories and run rsync in parallel
 for i in "${!user_dirs[@]}"; do
   ((i=i%PARALLEL)); ((i++==0)) && wait
   source_dir="$csunix_dir/${user_dirs[$i]}"
@@ -37,7 +37,7 @@ for i in "${!user_dirs[@]}"; do
       fi
 
       if [ -d "$target_dir" ]; then
-        /usr/bin/rsync -avzn --safe-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+        /usr/bin/rsync -avz --safe-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
       else
         echo "Directory $target_dir does not exist."
       fi

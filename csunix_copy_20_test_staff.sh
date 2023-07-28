@@ -22,7 +22,7 @@ done
 # Loop through the user directories and run rsync in parallel
 for i in "${!user_dirs[@]}"; do
   #((i=i%PARALLEL)); ((i++==0)) && wait
-    rsync -avz --progress --delete "${user_dirs[$i]}" "$eufs_dir" >> "$log_file" 2>&1 &
+    /usr/bin/rsync -avz --progress --delete "${user_dirs[$i]}" "$eufs_dir" >> "$log_file" 2>&1 &
 done
 
 # Wait for all rsync processes to finish
