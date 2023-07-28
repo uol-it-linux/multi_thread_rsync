@@ -3,10 +3,13 @@
 # Set the number of parallel processes
 #PARALLEL=40
 
+# Get date for log file
+current_date=$(date +%Y%m%d)
+
 # Set the source and destination paths
 #csunix_dir="/export/cserv1_a/soc_staff"
 eufs_dir="/mnt/eufs003/staff_lnxhome01/"
-log_file="/tmp/rsync.log"
+log_file="/tmp/staff_20_rsync_$current_date.log"
 
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/first_twenty.txt

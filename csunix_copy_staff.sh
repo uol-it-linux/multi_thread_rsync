@@ -3,11 +3,14 @@
 # Set the number of parallel processes
 PARALLEL=40
 
+# Get date for log file
+current_date=$(date +%Y%m%d)
+
 # Set the source and destination paths
 csunix_dir="/export/cserv1_a"
 eufs_dir="/mnt/eufs003/staff_lnxhome01/"
 #eufs_dir="/mnt/eufs003/Testvol"
-log_file="/tmp/rsync.log"
+log_file="/tmp/staff_rsync_$current_date.log"
 
 # Specify the files containing the exclude directories/patterns
 first_twenty_excludes="/root/multi_thread_rsync/first_twenty_usernames.txt"
