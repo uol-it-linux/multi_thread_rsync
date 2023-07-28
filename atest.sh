@@ -5,8 +5,8 @@ PARALLEL=40
 
 # Set the source and destination paths
 csunix_dir="/export/cserv1_a"
-eufs_dir="/mnt/eufs003/staff_lnxhome01/"
-#eufs_dir="/mnt/eufs003/Testvol"
+#eufs_dir="/mnt/eufs003/staff_lnxhome01/"
+eufs_dir="/mnt/eufs003/Testvol"
 log_file="/tmp/rsync.log"
 
 # Specify the files containing the exclude directories/patterns
@@ -34,7 +34,7 @@ for i in "${!user_dirs[@]}"; do
       fi
 
       if [ -d "$target_dir" ]; then
-        rsync -avzn --no-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+        rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
       else
         echo "Directory $target_dir does not exist."
       fi
