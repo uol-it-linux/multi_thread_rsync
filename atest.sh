@@ -48,4 +48,4 @@ done
 wait
 
 # Tidy up broken symlinks in the destination directory
-find "$eufs_dir" --maxdepth 1 --mindepth 1 -xtype l -delete
+find "$eufs_dir" -maxdepth 1 -mindepth 1 -xtype l -delete
