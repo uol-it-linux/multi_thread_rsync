@@ -5,8 +5,8 @@ PARALLEL=40
 
 # Set the source and destination paths
 csunix_dir="/export/cserv1_a"
-#eufs_dir="/mnt/eufs003/staff_lnxhome01/"
-eufs_dir="/mnt/eufs003/Testvol"
+eufs_dir="/mnt/eufs003/staff_lnxhome01/"
+#eufs_dir="/mnt/eufs003/Testvol"
 log_file="/tmp/rsync.log"
 
 # Specify the files containing the exclude directories/patterns
@@ -46,3 +46,6 @@ done
 
 # Wait for all rsync processes to finish
 wait
+
+# Tidy up broken symlinks in the destination directory
+find "$eufs_dir" --maxdepth 1 --mindepth 1 -xtype l -delete
