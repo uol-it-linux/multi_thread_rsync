@@ -34,7 +34,7 @@ for i in "${!user_dirs[@]}"; do
       fi
 
       if [ -d "$target_dir" ]; then
-        rsync -avzn --safe-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+        /usr/bin/rsync -avzn --safe-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
       else
         echo "Directory $target_dir does not exist."
       fi
@@ -48,4 +48,4 @@ done
 wait
 
 # Tidy up broken symlinks in the destination directory
-find "$eufs_dir" -maxdepth 1 -mindepth 1 -type l -exec rm -f {} +
+/usr/bin/find "$eufs_dir" -maxdepth 1 -mindepth 1 -type l -exec rm -f {} +
