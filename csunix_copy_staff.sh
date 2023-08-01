@@ -37,7 +37,7 @@ for i in "${!user_dirs[@]}"; do
       fi
 
       if [ -d "$target_dir" ]; then
-        /usr/bin/rsync -avzn --safe-links --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+        /usr/bin/rsync -avzn --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
       else
         echo "Directory $target_dir does not exist."
       fi
