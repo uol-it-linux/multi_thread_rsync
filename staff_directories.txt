@@ -9,3 +9,5 @@ speme_rpg
 mech_rpg
 elec_rpg
 civil_rpg
+feng_visitor
+soc_extern
