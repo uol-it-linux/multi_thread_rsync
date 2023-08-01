@@ -1,10 +1,8 @@
 civil_ug
 elec_msc
 elec_ug
-feng_visitor
 mech_ug
 soc_cts
-soc_extern
 soc_msc
 soc_ssa
 speme_ug
