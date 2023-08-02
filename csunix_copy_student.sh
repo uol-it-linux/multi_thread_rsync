@@ -17,7 +17,7 @@ first_twenty_excludes="/root/multi_thread_rsync/first_twenty_usernames.txt"
 additional_excludes="/root/multi_thread_rsync/rsync-homedir-excludes"
 dir_excludes="/root/multi_thread_rsync/parent_dirs_exclude.txt"
 symlink_excludes="/root/multi_thread_rsync/symlink_excludes.txt"
-disabled_users="root/multi_thread_rsync/disabled_users.txt"
+disabled_users="/root/multi_thread_rsync/disabled_users.txt"
 
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/student_directories.txt

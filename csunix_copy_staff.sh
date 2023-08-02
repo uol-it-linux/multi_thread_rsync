@@ -17,6 +17,7 @@ first_twenty_excludes="/root/multi_thread_rsync/first_twenty_usernames.txt"
 additional_excludes="/root/multi_thread_rsync/rsync-homedir-excludes"
 dir_excludes="/root/multi_thread_rsync/parent_dirs_exclude.txt"
 symlink_excludes="/root/multi_thread_rsync/symlink_excludes.txt"
+disabled_users="/root/multi_thread_rsync/disabled_users.txt"
 
 # Read the array of user directories from the file
 readarray -t user_dirs < /root/multi_thread_rsync/staff_directories.txt
@@ -38,7 +39,7 @@ for i in "${!user_dirs[@]}"; do
       fi
 
       if [ -d "$target_dir" ]; then
-        /usr/bin/rsync -avz --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --exclude-from "$symlink_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
+        /usr/bin/rsync -avz --inplace --partial --exclude-from="$first_twenty_excludes" --exclude-from "$disabled_users" --exclude-from="$additional_excludes" --exclude-from="$dir_excludes" --exclude-from "$symlink_excludes" --progress "$target_dir" "$eufs_dir" --delete >> "$log_file" 2>&1 &
       else
         echo "Directory $target_dir does not exist."
       fi
