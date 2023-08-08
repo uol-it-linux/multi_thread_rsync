@@ -6,3 +6,5 @@ for i in "${!user_dirs[@]}"; do
 rm /home/csunix/${user_dirs[$i]} 
 fi
 done
+
+/bin/bash /root/multi_thread_rsync/create_20_symlinks.sh
