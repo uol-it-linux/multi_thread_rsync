@@ -28,4 +28,4 @@ done
 # Wait for all rsync processes to finish
 wait
 
-/bin/bash /root/multi_thread_rsync/create_20_symlinks.sh
+/bin/bash /root/multi_thread_rsync/remove_20_symlinks.sh
