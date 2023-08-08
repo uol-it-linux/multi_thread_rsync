@@ -7,7 +7,6 @@ readarray -t user_dirs < /root/multi_thread_rsync/first_twenty_usernames.txt
 for i in "${!user_dirs[@]}"; do
   if [ -d "/export/cserv1_a/soc_staff/${user_dirs[$i]}" ]; then
   echo -e ln -s "/mnt/eufs003/staff_lnxhome01/${user_dirs[$i]}" "/home/csunix/${user_dirs[$i]}" >> /root/symlink.log
-
     ln -s "/mnt/eufs003/staff_lnxhome01/${user_dirs[$i]}" "/home/csunix/${user_dirs[$i]}"
   else
     echo "Directory /export/cserv1_a/soc_staff/${user_dirs[$i]} does not exist."
