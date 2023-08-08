@@ -8,7 +8,7 @@ for i in "${!user_dirs[@]}"; do
   if [ -d "/export/cserv1_a/soc_staff/${user_dirs[$i]}" ]; then
   echo -e 'ln -s "/export/cserv1_a/soc_staff/${user_dirs[$i]}" "/mnt/eufs003/staff_lnxhome01/${user_dirs[$i]}' >> /root/symlink.log
     #ln -s "/export/cserv1_a/soc_staff/${user_dirs[$i]}" "/mnt/eufs003/staff_lnxhome01/${user_dirs[$i]}"
-  else
+  #else
     #echo "Directory /export/cserv1_a/soc_staff/${user_dirs[$i]} does not exist."
   fi
 done
