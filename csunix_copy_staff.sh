@@ -54,3 +54,6 @@ wait
 
 # Tidy up broken symlinks in the destination directory
 /usr/bin/find "$eufs_dir" -maxdepth 1 -mindepth 1 -type l -exec rm -f {} +
+
+# Call remove_staff_symlinks.sh
+#/bin/bash /root/multi_thread_rsync/remove_staff_symlinks.sh
