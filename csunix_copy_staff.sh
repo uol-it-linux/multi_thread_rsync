@@ -1,18 +1,18 @@
 #!/bin/bash
 
 #Stop NFS Server
-#service nfs stop
-#wait
+service nfs stop
+wait
 
 # Check if the NFS server is stopped
-#nfs_status=$(service nfs status | grep -o "is stopped")
+nfs_status=$(service nfs status | grep -o "is stopped")
 
-#if [ -n "$nfs_status" ]; then
-#    echo "NFS server is stopped. Proceeding with synchronization."
-#else
-#    echo "NFS server is running. Exiting the script."
-#    exit 1
-#fi
+if [ -n "$nfs_status" ]; then
+    echo "NFS server is stopped. Proceeding with synchronization."
+else
+    echo "NFS server is running. Exiting the script."
+    exit 1
+fi
 
 
 # Set the number of parallel processes
@@ -72,4 +72,4 @@ wait
 
 
 # Call remove_staff_symlinks.sh
-#/bin/bash /root/multi_thread_rsync/remove_staff_symlinks.sh
+/bin/bash /root/multi_thread_rsync/remove_staff_symlinks.sh
