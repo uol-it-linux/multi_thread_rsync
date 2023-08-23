@@ -14,8 +14,9 @@ for i in "${!user_dirs[@]}"; do
   for dir in "${target_dirs[@]}"; do
     full_path="/export/cserv1_a/${dir}/${user_dirs[$i]}"
     if [ -d "$full_path" ]; then
-      echo -e ln -s "$full_path" "/home/csunix/${user_dirs[$i]}" >> /root/symlink.log
-      ln -s "$full_path" "/home/csunix/${user_dirs[$i]}"
+      symbolic_link_path="/uolstore/home/staff_lnxhome01/${user_dirs[$i]}"
+      ln -s "$symbolic_link_path" "/home/csunix/${user_dirs[$i]}"
+      echo "Created symbolic link for ${user_dirs[$i]} to $symbolic_link_path"
       break  # No need to check other target directories for this user
     fi
   done
