@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Record the start time
+start_time=$(date +%s)
+
 # Set the number of parallel processes
 PARALLEL=40
 
@@ -54,3 +57,15 @@ wait
 
 # Tidy up broken symlinks in the destination directory
 /usr/bin/find "$eufs_dir" -maxdepth 1 -mindepth 1 -type l -exec rm -f {} +
+
+# Record the end time
+end_time=$(date +%s)
+
+# Calculate the time taken
+time_taken=$((end_time - start_time))
+
+# Convert the time taken into a human-readable format (HH:MM:SS)
+formatted_time_taken=$(date -u -d @$time_taken +"%T")
+
+# Write the time taken to the log file
+echo "Script completed in $formatted_time_taken" >> "$log_file"
