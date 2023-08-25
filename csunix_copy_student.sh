@@ -68,4 +68,4 @@ time_taken=$((end_time - start_time))
 formatted_time_taken=$(date -u -d @$time_taken +"%T")
 
 # Write the time taken to the log file
-echo "Script completed in $formatted_time_taken" >> "$log_file"
+echo "Script completed in $formatted_time_taken" >> /tmp/student_runtimes_$current_date.log
