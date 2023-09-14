@@ -1,7 +1,2 @@
-civil_ug
-elec_ug
-mech_ug
-soc_cts
-soc_ssa
-speme_ug
-soc_ug
+elec_msc
+soc_msc
